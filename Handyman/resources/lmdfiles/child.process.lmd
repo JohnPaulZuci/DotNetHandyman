@@ -1,0 +1,15 @@
+process "child.file.process"
+{
+    try {
+            transform as "Child process called" on "db_conn_mssql" using
+            {"
+                 select message as data_count from movedata.movedata_pipeline_audit;
+            "}
+    }
+    catch {
+
+    }
+
+    finally {
+    }
+}

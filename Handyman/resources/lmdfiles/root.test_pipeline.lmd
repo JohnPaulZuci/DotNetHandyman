@@ -1,0 +1,51 @@
+process "root.test_pipeline"
+{
+    try{
+        
+       transform as "Start the audit for schema pipeline" on "db_conn_mssql" using
+       {"
+           INSERT INTO movedata.movedata_pipeline_audit (process_id, status, message)
+           VALUES ('${process-id}', 'STARTED', 'Starting to pull data');
+       "}on-condition if "true"=="true"
+
+       transform as "Success - updating Audit table" on "db_conn_mssql" using
+       {"
+           UPDATE movedata.movedata_pipeline_audit  SET status = 'COMPLETED',
+           message='Successfully completed the process'
+           WHERE process_id = '${process-id}' and status='STARTED';
+       "}on-condition if "true"=="true"
+
+        assign as "file_count" source "db_conn_mssql" using
+        {"
+            select status as data_count from movedata.movedata_pipeline_audit;
+        "}
+/*
+        callprocess as "calling Child pipeline lmd for pipeline-id: ${process-id}"
+        with-target "child.file.process"
+        from-file "${child_process1}"
+        using "db_conn_mssql"
+        for-every {"
+            select status as data_count from movedata.movedata_pipeline_audit;
+        "} on-condition if "true"=="true"
+        
+
+        copydata as "DataCopyTest" from "db_conn_mssql" to "db_conn_mssql" using
+        {"
+            SELECT * FROM movedata.movedata_src ORDER BY 1
+
+        "} on-condition if "true"=="true"
+*/
+    }catch{
+       /* Failed - Update audit table */
+       transform as "Failure - updating Audit table " on "db_conn_mssql" using
+       {"
+           UPDATE movedata.movedata_pipeline_audit  SET status = 'FAILED',
+           message='Failed to clean up the file of xDB from local directory'
+           WHERE process_id = '${process-id}' and status='STARTED';
+       "} on-condition if "true"=="true"
+
+       }
+    finally{
+
+    }
+}
