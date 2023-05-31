@@ -1,6 +1,9 @@
 # CsharpDotNet1
 # Project using Dotnet Core sdk version 7.0
 
+# Url used here:  
+## https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.203-linux-x64-binaries
+
 ### Refer 'CsharpDotNet1.csproj' file for detailed information
 
 
