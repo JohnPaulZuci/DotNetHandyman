@@ -1,4 +1,5 @@
 using Antlr4.Runtime;
+using CsharpDotNet1.antlr.compiler;
 
 namespace LambdaParserNS
 {
@@ -6,9 +7,11 @@ namespace LambdaParserNS
     {
         public static RavenParser.ProcessContext DoParse(string processFile, Dictionary<string, string> context)
         {
-            var input = CharStreams.fromstring(processFile);
+            //var input = CharStreams.fromstring(processFile);
+            AntlrInputStream inputStream = new AntlrInputStream(processFile);
+
             // create lexer
-            var lexer = new RavenLexer(input);
+            var lexer = new RavenLexer(inputStream);
             // create token stream
             var tokens = new CommonTokenStream(lexer);
             // create parser

@@ -13,6 +13,7 @@ using ActionInterfaceNS;
 using System.Reflection;
 using Newtonsoft.Json;
 using ActorOperationNS;
+using CsharpDotNet1.antlr.compiler;
 
 namespace PipelineExecutorNS
 {
@@ -21,7 +22,7 @@ namespace PipelineExecutorNS
     {
         private static readonly HandymanRepo REPO = new HandymanRepoImpl();
         private const string RAVEN_VM = "RavenVM";
-        private const string THROW_EXCEPTION = "throw_exception";
+        //private const string THROW_EXCEPTION = "throw_exception";
 
         public static PipelineExecutionAudit Start(LContext lContext)
         {

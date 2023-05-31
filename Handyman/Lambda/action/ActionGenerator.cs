@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 
 
 using ConfigNS;
+using CsharpDotNet1.antlr.compiler;
 
 namespace ClassGeneratorNS
 {
