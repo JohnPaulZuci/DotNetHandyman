@@ -2,9 +2,10 @@ using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
-
+using IBM.Data.DB2.Core;
 
 using DoaActionsNS;
+using System.Data.Common;
 
 namespace ConfigNS
 {
@@ -67,7 +68,8 @@ namespace ConfigNS
         {
             MySql,
             PostgreSQL,
-            MSSQL
+            MSSQL,
+            DB2
         }
         public IDbConnection CreateConnection()
         {
@@ -82,6 +84,10 @@ namespace ConfigNS
                 (Driver_Class.IndexOf("mssql", StringComparison.OrdinalIgnoreCase) >= 0))
             {
                 databaseType = DatabaseType.MSSQL;
+            }
+            else if (Driver_Class.IndexOf("db2", StringComparison.OrdinalIgnoreCase) >= 0) 
+            {
+                databaseType = DatabaseType.DB2;
             }
 
             switch (databaseType)
@@ -99,6 +105,10 @@ namespace ConfigNS
                 case DatabaseType.MSSQL:
                     connectionString = $"Data Source={Host};Initial Catalog={Database_Name};User ID={User_Name};Password={Password}";
                     connection = new SqlConnection(connectionString);
+                    break;
+                case DatabaseType.DB2:
+                    connectionString = $"Server={Host};Database={Database_Name};UID={User_Name};PWD={Password};";
+                    connection = new DB2Connection(connectionString);
                     break;
 
                 default:
