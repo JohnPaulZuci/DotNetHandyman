@@ -2,6 +2,16 @@ process "root.test_pipeline"
 {
     try{
         
+       ftpsupload as "FTP upload Test" with-remote-host "localhost" port "21" user-name "johnftp" password "test123" session-timeout "10" source-file-to-upload "/tmp/jps" in-destination-to-save "/" upload-check "false" using
+       {"
+            a=b
+       "}on-condition if "true"=="true"
+/*
+       ftpsupload as "FTP upload Test" with-remote-host "localhost" port "21" user-name "johnftp" password "test123" session-timeout "10" source-file-to-upload "/tmp/test-ftp" in-destination-to-save "a.txt" upload-check "false" using
+       {"
+            a=b
+       "}on-condition if "true"=="true"
+
        transform as "Start the audit for schema pipeline" on "db_conn_mssql" using
        {"
            INSERT INTO movedata.movedata_pipeline_audit (process_id, status, message)
@@ -19,7 +29,7 @@ process "root.test_pipeline"
         {"
             select status as data_count from movedata.movedata_pipeline_audit;
         "}
-/*
+
         callprocess as "calling Child pipeline lmd for pipeline-id: ${process-id}"
         with-target "child.file.process"
         from-file "${child_process1}"

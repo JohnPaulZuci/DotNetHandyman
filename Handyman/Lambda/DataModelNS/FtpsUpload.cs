@@ -12,7 +12,6 @@ public string sourceFile { get; set; }
 public string destDir { get; set; }
 public string uploadCheck { get; set; }
 public bool condition { get; set; }
-public string children { get; set; }
 public string exception { get; set; }
-public string invokingState { get; set; }
+
 }
