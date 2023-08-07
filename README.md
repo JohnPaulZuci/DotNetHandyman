@@ -1,5 +1,29 @@
 # DotNetHandyman
-Handyman implementation in cSharp
+This repository contains a .NET solution that includes a Windows Console App and a Web App.
+
+## Table of Contents
+
+- [Description](#description)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Build_steps](#build_steps)
+- [License](#license)
+
+## Description
+
+This project consists of two parts:
+
+1. **Windows Console App**: This folder contains the source code for the Windows Console Application. It [briefly describe what the console app does, if relevant].
+
+2. **Web App**: This folder contains the source code for the Web Application. It [briefly describe what the web app does, if relevant].
+
+Both applications are combined using a single .NET solution for easier development and management.
+
+## Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download/dotnet) [version]: Install the .NET SDK [and specify the version] to build and run the applications.
+
+## Installation
 
 ## To get the repository clone
 
@@ -11,7 +35,7 @@ Handyman implementation in cSharp
 ## To change to the particular branch
  > git checkout {{branch}}
 
-
+## Build_steps
 
 # Handyman build steps
 
@@ -56,6 +80,11 @@ dotnet publish Server/Server.csproj --configuration Release --output ./Destinati
 
 ## Run command
 dotnet run --project Server/Server.csproj 
+
+## License
+  - Apache license-2.0
+
+
 
 # REFERENCES
 
