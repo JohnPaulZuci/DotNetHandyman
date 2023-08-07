@@ -12,6 +12,7 @@ Handyman implementation in cSharp
  > git checkout {{branch}}
 
 
+
 # Handyman build steps
 
 ## Project using Dotnet Core sdk version 7.0
@@ -65,10 +66,10 @@ dotnet run --project Server/Server.csproj
 - Use the swagger url to call api.
 
 # Handyman Folder
- - Orchestration flow using low code
+ - Has Orchestration flow using low code
  - Use lmd file with .lmd extension to write the logic
    
-# Use solution(.sln) file to build and run the Dotnet application uisng visual studio editor
+# Use solution(.sln) file to build and run the Dotnet application using visual studio editor
 
 # Multiple Flavours
   - Tested the code in Visual studio editor - branch ( Windows-testing )
