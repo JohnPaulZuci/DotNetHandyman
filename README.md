@@ -8,7 +8,7 @@ Handyman implementation in cSharp
 - code to trigger the resources
 - Use the swagger url to call api.
 - 
-## Readme files are available in each child folder
+# Readme files are available in each child folder
 
 # Use Solution(sln) file to build and run the Dotnet application
 
