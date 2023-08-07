@@ -14,9 +14,9 @@ Handyman implementation in cSharp
 
 # Handyman build steps
 
-# Project using Dotnet Core sdk version 7.0
+## Project using Dotnet Core sdk version 7.0
 
-# Url used here:  
+### Url used here:  
  - https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.203-linux-x64-binaries
 
 ## Steps to configure 
@@ -50,10 +50,10 @@ dotnet run
 
 # Server code build steps
 
-# Build command
+## Build command
 dotnet publish Server/Server.csproj --configuration Release --output ./Destination/
 
-# Run command
+## Run command
 dotnet run --project Server/Server.csproj 
 
 # REFERENCES
