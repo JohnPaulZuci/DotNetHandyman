@@ -14,4 +14,4 @@ Handyman implementation in cSharp
 
 # Multiple Flavours
   - Tested the code in Visual studio editor - branch ( Windows-testing )
-  - Use the Visual studio Code editor in ubuntu to run the solution
+  - Use the Visual studio Code editor in ubuntu to run the solution - branch (master)
